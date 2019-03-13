@@ -1,6 +1,6 @@
 #!/bin/bash
-folderName=$1 #
-executeble=$2 #
+folderName=$1
+executeble=$2
 comp="PASS"
 memo="PASS"
 thread="PASS"
@@ -16,7 +16,7 @@ echo 7
 exit 7
 fi
 
-valgrind --leak-check=full --error-exitcode=1 ./"$executeble" $@ &> output.txt
+valgrind --leak-check=full --error-exitcode=1 ./"$executeble" shift 2 $@ &> output.txt
 valgrindOut=$?
 
 if [ "$valgrindOut" -gt 0 ]; then
@@ -24,7 +24,7 @@ valgrindOut=1
 memo="FAIL"
 fi
 
-valgrind --tool=helgrind --error-exitcode=1 ./"$executeble" $@ &> output.txt
+valgrind --tool=helgrind --error-exitcode=1 ./"$executeble" shift 2 $@ &> output.txt
 helgrindOut=$?
 
 if [ "$helgrindOut" -gt 0 ]; then
