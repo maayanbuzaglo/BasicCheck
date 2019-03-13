@@ -1,6 +1,6 @@
 #!/bin/bash
 folderName=$1 #
-executeble=$2
+executeble=$2 #
 comp="PASS"
 memo="PASS"
 thread="PASS"
