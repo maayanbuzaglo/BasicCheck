@@ -1,5 +1,5 @@
 #!/bin/bash
-folderName=$1
+folderName=$1 #
 executeble=$2
 comp="PASS"
 memo="PASS"
